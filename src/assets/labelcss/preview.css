@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    background: #fff;
+}
+
+html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust: none;
+}
+
+.preview-page {
+    margin: 5px;
+    position: relative;
+    border: 1px solid #000;
+    page-break-after: always;
+    overflow: hidden;
+}
+
+/* widget */
+.cl-widget {
+    position: absolute;
+    z-index: 2;
+}
+.cl-widget-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+/*  */
+.js-hide {
+    display: none!important;
+}
+
+.iconfont {
+    font-size: inherit;
+}
+
+.icon-trash {
+    color: #dd514c;
+}

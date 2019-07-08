@@ -1,0 +1,69 @@
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+.operat-box {       //操作按钮栏的全局样式
+    background: #f0f4f3;
+    padding: 10px 0px;
+    overflow: hidden;
+  }
+.pagination-box{    //分页div
+    position: fixed;
+    bottom: 18px;
+    width: 100%;
+    // right: 0px;
+    // width: calc(100% - 200px - 15px);
+    right: 25px;
+    width: calc(100% - 200px - 40px);
+    padding: 10px 30px;
+    text-align: right;
+    background: #fff;
+    z-index: 98;
+}
+
+.cz-box {         //表格操作了的分割线
+  /deep/ .el-divider {
+    background: #13a468;
+  }
+}
+
+.table-box{       //表格
+  padding: 0 10px;
+}
+.divid-line{      //分割线
+  background: #e7eaef;
+  height: 1px;
+  margin: 35px 0;
+}
+
+.search-box {
+  padding: 0 10px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+}
+
+.dialog-footer{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.mw400{
+  min-width: 400px;
+  max-width: 450px;
+}
+
+
+//去掉input[number]的上下选择箭头
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+*{
+  font-family: "PingFang SC","Lantinghei SC","Microsoft YaHei","HanHei SC","Helvetica Neue","Open Sans",Arial,"Hiragino Sans GB","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+}
