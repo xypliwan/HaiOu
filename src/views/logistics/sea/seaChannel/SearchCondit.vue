@@ -3,11 +3,11 @@
   <div>
     <div class="search-box">
       <el-row>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">渠道代码</div>
           <el-input @keyup.enter.native="search" size="mini" class="item" v-model="params.cc_code" placeholder="请输入渠道代码" clearable></el-input>
         </el-col>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">渠道名称</div>
           <el-input @keyup.enter.native="search" size="mini" class="item" v-model="params.cc_name" placeholder="请输入渠道名称" clearable></el-input>
         </el-col>
@@ -48,6 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

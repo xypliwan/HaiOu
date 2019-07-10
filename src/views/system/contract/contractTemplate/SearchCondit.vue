@@ -1,15 +1,17 @@
 <template>
   <div class="search-box">
     <el-row>
-      <el-col :span="5" class="flxed">
+      <el-col :span="7" class="flxed">
         <div class="input-label">模板编号</div>
         <el-input @keyup.enter.native="search" clearable size="mini" class="item" placeholder="精确搜索" v-model="params.template_no"></el-input>
       </el-col>
-      <el-col :span="5" class="flxed">
+      <el-col :span="7" class="flxed">
         <div class="input-label">模板名称</div>
         <el-input @keyup.enter.native="search" clearable size="mini" class="item" placeholder="精确搜索" v-model="params.template_name"></el-input>
       </el-col>
-      <el-col class="flxed mw400">
+    </el-row>
+    <el-row style="margin-top:20px;">
+      <el-col class="flxed" :span="10">
         <div class="input-label">创建时间</div>
         <el-date-picker
           @keyup.enter.native="search"
@@ -25,9 +27,7 @@
           value-format="yyyy-MM-dd HH:mm:ss"
         ></el-date-picker>
       </el-col>
-    </el-row>
-    <el-row style="margin-top:20px;">
-      <el-col style="width:225px;margin-left:71px;">
+      <el-col style="width:225px;margin-left:32px;">
         <el-button size="mini" type="primary" @click="search">查询</el-button>
         <el-button size="mini" @click="reset">重置</el-button>
       </el-col>
@@ -74,6 +74,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

@@ -11,6 +11,16 @@ export function getWaybillList(data = {}) {
     })
 };
 
+//导出运单
+// export function exportXxcel(data = {}) {
+//     return axios({
+//         url: `/tms/transport/export-excel`,
+//         method: "post",
+//         data
+//     })
+// };
+
+
 //获取运单详情
 export function getWaybillDetail(data = {}) {
     return axios({

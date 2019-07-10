@@ -14,8 +14,8 @@
           </template>
         </el-table-column>
         <el-table-column label="渠道代码" prop="cc_code" width="150" fixed></el-table-column>
-        <el-table-column label="中文名称" prop="cc_name" width="200"></el-table-column>
-        <el-table-column label="英文名称" prop="cc_name_en" width="200"></el-table-column>
+        <el-table-column label="渠道名称" prop="cc_name" width="200"></el-table-column>
+        <el-table-column label="渠道英文名称" prop="cc_name_en" width="200"></el-table-column>
         <el-table-column label="货运时效(天)">
           <template slot-scope="scope">
             <div>{{scope.row.cc_delivery_time_min}} - {{scope.row.cc_delivery_time_max}}</div>

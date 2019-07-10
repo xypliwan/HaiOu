@@ -3,21 +3,19 @@
   <div>
     <div class="search-box">
       <el-row>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">客户代码</div>
           <el-input clearable size="mini" @keyup.enter.native="search" class="item" placeholder="模糊搜索" v-model="params.company_code"></el-input>
         </el-col>
 
-        <el-col :span="5" class="flxed">
+        <el-col :span="8" class="flxed">
           <div class="input-label">派送渠道</div>
           <el-select @keyup.enter.native="search" class="item" size="mini" v-model="params.sc_code" filterable clearable placeholder="请选择">
-            <el-option v-for="item in channelList" :key="item.sc_code" :label="item.sc_name" :value="item.sc_code">
-              <span style="float: left">{{ item.sc_name }}</span>
-              <span style="float: right; color: #8492a6; font-size: 13px">{{ item.sc_name_en }}</span>
-            </el-option>
+            <el-option v-for="item in channelList" :key="item.sc_code" :label="`[ ${item.sc_code} ] ${item.sc_name}`" :value="item.sc_code"></el-option>
           </el-select>
         </el-col>
-
+      </el-row>
+      <el-row style="margin-top:15px;">
         <el-col :span="10" class="flxed">
           <div class="input-label">发布时间</div>
           <el-date-picker
@@ -34,10 +32,7 @@
             value-format="yyyy-MM-dd HH:mm:ss"
           ></el-date-picker>
         </el-col>
-      </el-row>
-
-      <el-row style="margin-top:20px;">
-        <el-col style="width:225px;margin-left:71px;">
+        <el-col style="width:225px;margin-left:71px">
           <el-button size="mini" type="primary" @click="search">查询</el-button>
           <el-button size="mini" @click="reset">重置</el-button>
         </el-col>
@@ -108,6 +103,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

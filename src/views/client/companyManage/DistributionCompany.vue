@@ -8,17 +8,17 @@
         </div>
         <el-form :model="ruleForm" size="small" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="销售代表" prop="sales">
-            <el-select v-model="ruleForm.sales" placeholder="请选择客服">
+            <el-select v-model="ruleForm.sales" filterable clearable placeholder="请选择客服">
               <el-option v-for="item in customerService" :key="item.admin_account" :label="item.admin_name" :value="item.admin_account"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="客服代表" prop="service">
-            <el-select v-model="ruleForm.service" placeholder="请选择客服">
+            <el-select v-model="ruleForm.service" filterable clearable placeholder="请选择客服">
               <el-option v-for="item in customerService" :key="item.admin_account" :label="item.admin_name" :value="item.admin_account"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="技术支持" prop="technical">
-            <el-select v-model="ruleForm.technical" placeholder="请选择客服">
+            <el-select v-model="ruleForm.technical" filterable clearable placeholder="请选择客服">
               <el-option v-for="item in customerService" :key="item.admin_account" :label="item.admin_name" :value="item.admin_account"></el-option>
             </el-select>
           </el-form-item>
@@ -105,10 +105,12 @@ export default {
   .company-name {
     background: #f0f4f3;
     padding: 3px 10px;
-    margin-right: 5px;
+    margin-right: 7px;
     border-radius: 3px;
     font-size: 12px;
     color: #333;
+    display: inline-block;
+    margin-top: 7px;
   }
 }
 </style>

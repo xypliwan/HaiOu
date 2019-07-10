@@ -75,8 +75,8 @@
         </el-table-column>
         <el-table-column label="时效" width="200">
           <template slot-scope="scope">
-            <div>货运时效: {{scope.row.sc_delivery_time_min}} - {{scope.row.sc_delivery_time_max}}</div>
-            <div>平均时效: {{scope.row.sc_delivery_time_avg}}</div>
+            <div>货运时效: {{scope.row.sc_delivery_time_min}} - {{scope.row.sc_delivery_time_max}} 天</div>
+            <div>平均时效: {{scope.row.sc_delivery_time_avg}} 天</div>
           </template>
         </el-table-column>
         <el-table-column label="是否官网显示" width="150">
@@ -94,7 +94,7 @@
             <div>{{scope.row.sc_note}}</div>
           </template>
         </el-table-column>
-        <el-table-column label="时间" width="200">
+        <el-table-column label="时间" width="220">
           <template slot-scope="scope">
             <div>添加时间: {{scope.row.sc_created_time}}</div>
             <div>修改时间: {{scope.row.sc_update_time}}</div>
@@ -163,6 +163,7 @@ export default {
       pageSizeArr: [10, 20, 30, 40],
       total: null,
       params: {
+        sc_status:'1',
         group:'',     //分组
         sc_code: '', //服务渠道代码
         sc_name: '', //中文名称

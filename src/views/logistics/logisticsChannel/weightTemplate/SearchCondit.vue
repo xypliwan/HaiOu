@@ -3,7 +3,7 @@
   <div>
     <div class="search-box">
       <el-row>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">名称</div>
           <el-input @keyup.enter.native="search" size="mini" class="item" v-model="params.wt_name" clearable placeholder="模糊搜索"></el-input>
         </el-col>
@@ -41,8 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
-  // padding-bottom: 20px;
-  // min-width: 1100px;
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

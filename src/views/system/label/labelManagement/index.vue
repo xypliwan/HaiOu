@@ -2,7 +2,7 @@
   <div>
     <search-condit :lableTypeList="lableTypeList" @search="search" @reset="reset"></search-condit>
     <div class="operat-box">
-      <el-button size="mini" class="fr" @click="labelVisible = true" plain>新增</el-button>
+      <el-button size="mini" class="fr" @click="labelVisible = true" type="primary">新增</el-button>
     </div>
     <div class="table-box tables">
       <el-table :data="tableData" stripe style="width: 100%" v-loading="tableLoading" :row-style="this.$root.tableContentStyle" :header-cell-style="this.$root.tableTitileStyle">

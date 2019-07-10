@@ -33,6 +33,11 @@ export default {
       default: false
     }
   },
+  watch: {
+    visibleApp() {
+      this.ruleForm.customer_code = '';
+    }
+  },
   data() {
     return {
       ruleForm: { customer_code: '' },

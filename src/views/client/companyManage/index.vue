@@ -153,6 +153,9 @@ export default {
   },
   watch: {
     detailDialog(newVal) {
+      if(!newVal){
+        this.companyDetailId = ''
+      }
       this.$refs.detailRef.$refs.appRef.visibleApp = false;
     }
   },
@@ -190,8 +193,6 @@ export default {
     seeDetail(id) {
       this.companyDetailId = id;
       this.detailDialog = true;
-      // this.companyCode = code;
-      // this.subVisible = true;
     },
     async selectCompanyLabel() {
       //客户标签

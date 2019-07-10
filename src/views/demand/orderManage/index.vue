@@ -23,9 +23,9 @@
             <div>{{(scope.$index + 1) + (params.page-1)*params.pageSize}}</div>
           </template>
         </el-table-column>
-        <el-table-column label="需求" width="250" fixed>
+        <el-table-column label="需求编号" width="200" fixed>
           <template slot-scope="scope">
-            <div>需求编号: {{scope.row.demand_number}}</div>
+            <div>{{scope.row.demand_number}}</div>
           </template>
         </el-table-column>
         <el-table-column label="公司" width="200" fixed>
@@ -56,13 +56,13 @@
             <div>更新人: {{scope.row.updated_user}}</div>
           </template>
         </el-table-column>
-        <el-table-column label="操作时间" width="200">
+        <el-table-column label="操作时间" width="220">
           <template slot-scope="scope">
             <div>创建时间: {{scope.row.created_time}}</div>
             <div>更新时间: {{scope.row.updated_time}}</div>
           </template>
         </el-table-column>
-        <el-table-column label="需求状态" width="200">
+        <el-table-column label="需求状态" width="150">
           <template slot-scope="scope">
             <div>
               <span
@@ -105,7 +105,7 @@
     <distribution-service :distributionListVisible.sync="distributionListVisible" :distributionList="distributionList" :customerService="customerService" @demandAssignOk="getDemandList"></distribution-service>
 
     <!-- 需求详情 -->
-    <common-dialog :show.sync="detailDialog" :title="demandTitle" width="80%">
+    <common-dialog :show.sync="detailDialog" :title="demandTitle" width="1200px">
       <detail-demand
         :companyCode="companyCode"
         :demandNumber="demandNumber"
@@ -179,9 +179,11 @@ export default {
   },
   methods: {
     lookDetail(item) {
+      console.log(item)
       //查看详情
       this.companyCode = item.company_code;
       this.demandNumber = item.demand_number;
+      this.demandTitle = `需求详情--编号${item.demand_number}`;
       this.detailDialog = true;
     },
     async userSearch() {

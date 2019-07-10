@@ -1,15 +1,17 @@
 <template>
   <div class="search-box">
     <el-row>
-      <el-col :span="5" class="flxed">
+      <el-col :span="7" class="flxed">
         <div class="input-label">账户</div>
         <el-input @keyup.enter.native="search" clearable size="mini" class="item" placeholder="精确搜索" v-model="params.account"></el-input>
       </el-col>
-      <el-col :span="5" class="flxed">
+      <el-col :span="7" class="flxed">
         <div class="input-label">名字</div>
         <el-input @keyup.enter.native="search" clearable size="mini" class="item" placeholder="模糊搜索" v-model="params.name"></el-input>
       </el-col>
+    </el-row>
 
+    <el-row style="margin-top:15px;">
       <el-col :span="10" class="flxed">
         <div class="input-label">入职时间</div>
         <el-date-picker
@@ -26,10 +28,7 @@
           value-format="yyyy-MM-dd HH:mm:ss"
         ></el-date-picker>
       </el-col>
-    </el-row>
-
-    <el-row style="margin-top:20px;">
-      <el-col style="width:225px;margin-left:45px;">
+      <el-col style="width:225px;margin-left:32px;">
         <el-button size="mini" type="primary" @click="search">查询</el-button>
         <el-button size="mini" @click="reset">重置</el-button>
       </el-col>
@@ -76,6 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

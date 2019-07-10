@@ -3,29 +3,29 @@
   <div>
     <div class="search-box">
       <el-row>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">起始地</div>
-          <el-select @keyup.enter.native="search" size="mini" class="item" v-model="params.group_code" filterable placeholder="请选择">
+          <el-select @keyup.enter.native="search" clearable size="mini" class="item" v-model="params.sea_origin_id" filterable placeholder="请选择">
             <el-option v-for="item in originList" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-col>
 
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">目的地</div>
-          <el-select @keyup.enter.native="search" size="mini" class="item" v-model="params.group_code" filterable placeholder="请选择">
+          <el-select @keyup.enter.native="search" clearable size="mini" class="item" v-model="params.sea_destination_id" filterable placeholder="请选择">
             <el-option v-for="item in destinationList" :key="item.id" :label="item.name" :value="item.id"></el-option>
-          </el-select>
-        </el-col>
-        <el-col :span="5" class="flxed">
-          <div class="input-label">服务商</div>
-          <el-select @keyup.enter.native="search" size="mini" class="item" v-model="params.group_code" filterable placeholder="请选择">
-            <el-option v-for="item in serviceProviderList" :key="item.sp_id" :label="item.sp_name" :value="item.sp_id"></el-option>
           </el-select>
         </el-col>
       </el-row>
 
-      <el-row style="margin-top:20px;">
-        <el-col style="width:225px;margin-left:71px;">
+      <el-row style="margin-top:15px;">
+        <el-col :span="7" class="flxed">
+          <div class="input-label">服务商</div>
+          <el-select @keyup.enter.native="search" clearable size="mini" class="item" v-model="params.service_id" filterable placeholder="请选择">
+            <el-option v-for="item in serviceProviderList" :key="item.sp_id" :label="item.sp_name" :value="item.sp_id"></el-option>
+          </el-select>
+        </el-col>
+        <el-col style="width:225px;margin-left:60px;">
           <el-button size="mini" type="primary" @click="search">查询</el-button>
           <el-button size="mini" @click="reset">重置</el-button>
         </el-col>
@@ -81,6 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

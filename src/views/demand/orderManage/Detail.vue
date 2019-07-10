@@ -1,18 +1,14 @@
 <template>
   <div>
-    <div class="detail-box" v-loading="detailLoading">
+    <div class="detail-box" v-loading="detailLoading" element-loading-text="loading" element-loading-spinner="el-icon-loading" element-loading-background="rgba(255,255,255,0)">
       <div class="item">
-        <div class="demand-title">
-          需求编号
-          <span class="status-xq">{{getMappingVal(statusList, 'status_index',params.demand_status,'status_name')}}</span>
-          <span class="fr">更新时间</span>
-        </div>
-        <div class="answer">
-          {{params.demand_number}}
-          <span class="fr">{{params.updated_time}}</span>
-        </div>
         <div class="demand-title">派送渠道</div>
-        <div class="answer">{{getMappingVal(channelList,'sc_code',params.sc_code,'sc_name')}}</div>
+        <div class="answer">
+          <span>渠道代码 {{params.sc_code}}</span>
+          <span class="fr">渠道名称 {{getMappingVal(channelList,'sc_code',params.sc_code,'sc_name')}}</span>
+        </div>
+        <div class="demand-title">更新时间</div>
+        <div class="answer">{{params.updated_time}}</div>
         <div class="demand-title">跟进客服</div>
         <div class="answer">{{params.service_user || '暂无'}}</div>
         <div class="demand-title">目的国家 / 邮编</div>
@@ -39,12 +35,14 @@
 
         <div class="history-cont" ref="historyContBox">
           <div v-for="(item,index) in demandLog" :key="index" class="cont-wrapper">
-            <p class="cont-name" :class="{'left':item.operate_site == '1','right':item.operate_site == '2'}">
-              {{item.operate_user}} &nbsp;&nbsp;
-              {{item.operate_time}}
-            </p>
+            <div class="block-wrapper" :class="{'left':item.operate_site == '1','right':item.operate_site == '2'}">
+              <p class="cont-name">
+                {{item.operate_user}} &nbsp;&nbsp;
+                {{item.operate_time}}
+              </p>
 
-            <p class="cont-text" :class="{'left':item.operate_site == '1','right':item.operate_site == '2'}">{{item.operate_content}}</p>
+              <p class="cont-text">{{item.operate_content}}</p>
+            </div>
           </div>
         </div>
         <div class="reply" v-show="params.demand_status == '1' || params.demand_status == '2' || params.demand_status == '3'">
@@ -165,7 +163,7 @@ export default {
         let { data } = await demandDetail(params);
         Object.assign(this.params, data.demand);
         this.demandLog = data.demand_log;
-        this.activeStatus =Number(this.params.demand_status) ;
+        this.activeStatus = Number(this.params.demand_status);
         if (this.params.demand_status == '0') {
           this.activeStatus = 5;
           this.finishStatus = 'success';
@@ -228,12 +226,21 @@ export default {
       .cont-wrapper {
         overflow: hidden;
         margin-bottom: 20px;
-        .cont-name {
-          font-size: 13px;
-        }
-        .cont-text {
-          font-size: 14px;
-          line-height: 20px;
+        .block-wrapper {
+          display: inline-block;
+          width: auto;
+          overflow: hidden;
+          padding: 10px 10px;
+          border-radius: 3px;
+          overflow: hidden;
+          .cont-name {
+            font-size: 13px;
+            margin-bottom: 10px;
+          }
+          .cont-text {
+            font-size: 14px;
+            line-height: 20px;
+          }
         }
       }
     }
@@ -261,7 +268,6 @@ export default {
   padding: 6px 10px;
   background: #fff;
   color: #333333;
-  width: 70%;
   float: left;
 }
 .right {
@@ -269,7 +275,6 @@ export default {
   padding: 6px 10px;
   background: #13a468;
   color: #fff;
-  width: 80%;
   float: right;
 }
 .status-xq {

@@ -9,7 +9,7 @@
 
         <el-form :model="ruleForm" size="small" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="选择客服" prop="user_account">
-            <el-select v-model="ruleForm.user_account" placeholder="请选择客服">
+            <el-select v-model="ruleForm.user_account" filterable clearable placeholder="请选择客服">
               <el-option v-for="item in customerService" :key="item.admin_account" :label="item.admin_name" :value="item.admin_account"></el-option>
             </el-select>
           </el-form-item>
@@ -92,10 +92,12 @@ export default {
   .demand-name {
     background: #f0f4f3;
     padding: 3px 10px;
-    margin-right: 5px;
+    margin-right: 7px;
     border-radius: 3px;
     font-size: 12px;
     color: #333;
+    display: inline-block;
+    margin-top: 7px;
   }
 }
 </style>

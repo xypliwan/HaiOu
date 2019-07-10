@@ -1,11 +1,22 @@
 <template>
   <div>
     <serach-condit :clientGroupList="clientGroupList" :waybillType="waybillType" @search="search" @reset="reset"></serach-condit>
-    <div class="operat-box"></div>
+    <div class="operat-box">
+      <el-button size="mini" class="fr" @click="exportOrder" type="primary">导出</el-button>
+    </div>
     <operat-type :operatType="statusList" @getStatus="getListStatus"></operat-type>
 
     <div class="table-box">
-      <el-table v-loading="tableLoading" :data="tableData" style="width: 100%" :row-style="this.$root.tableContentStyle" :header-cell-style="this.$root.tableTitileStyle" stripe>
+      <el-table
+        v-loading="tableLoading"
+        :data="tableData"
+        style="width: 100%"
+        :row-style="this.$root.tableContentStyle"
+        :header-cell-style="this.$root.tableTitileStyle"
+        stripe
+        @selection-change="selectChange"
+      >
+        <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column header-align="center" align="center" label="NO" width="50" fixed>
           <template slot-scope="scope">
             <div>{{(scope.$index + 1) + (params.page-1)*params.pageSize}}</div>
@@ -120,13 +131,14 @@
 <script>
 import { getCustomerGroup } from '@/api/client';
 import { getStatus, getTypes, getChannelList, getCounrty, getDict } from '@/api/common';
-import { getWaybillList } from '@/api/logistics';
+import { getWaybillList, exportXxcel } from '@/api/logistics';
 
 import SerachCondit from './SearchCondit';
 import OperatType from '_c/common/OperatType';
 import CustomizePage from '_c/CustomizePage';
 import DetailWaybill from './DetailWaybill';
 import CommonDialog from '_c/common/Dialog';
+import axios from '@/utils/downloadRequest';
 export default {
   data() {
     return {
@@ -158,7 +170,8 @@ export default {
       groupCode: '',
       waybillNumber: '',
       isEnter: false,
-      enterPageX: null
+      enterPageX: null,
+      exportOrderList: []
     };
   },
   created() {
@@ -173,6 +186,41 @@ export default {
   },
   mounted() {},
   methods: {
+    selectChange(selection) {
+      //勾选的选项发生变化时
+      this.exportOrderList = selection.map(el => el.way_bill_id);
+    },
+    async exportOrder() {
+      //导出运单
+      if (this.exportOrderList.length <= 0) {
+        this._message('请先勾选运单', 'warning');
+        return;
+      }
+      axios({
+        method: 'post',
+        url: '/tms/transport/export-excel', // 请求地址
+        data: { way_bill_id_arr: this.exportOrderList, group_code: this.params.group_code }, // 参数
+        responseType: 'blob' //  表明返回服务器返回的数据类型  这里注意要加上responseType
+      })
+        .then(res => {
+          // 处理返回的文件流
+          // 注意 返回的res 无需做任何处理，有时在用框架封装的请求之后会出现返回response.text() 等情况导致文件流下载失败。
+          const content = res;
+          const blob = new Blob([content]);
+          const fileName = 'waybill.xls';
+          const alink = document.createElement('a');
+          alink.download = fileName;
+          alink.style.display = 'none';
+          alink.href = URL.createObjectURL(blob); // 这里是将文件流转化为一个文件地址
+          document.body.appendChild(alink);
+          alink.click();
+          URL.revokeObjectURL(alink.href); // 释放URL 对象
+          document.body.removeChild(alink);
+        })
+        .catch(error => {
+          this._message(error);
+        });
+    },
     seaDetail(groupCode, number) {
       this.groupCode = groupCode;
       this.waybillNumber = number;

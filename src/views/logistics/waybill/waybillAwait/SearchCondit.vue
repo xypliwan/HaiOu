@@ -3,35 +3,35 @@
   <div>
     <div class="search-box">
       <el-row>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">客户分组</div>
           <el-select @keyup.enter.native="search" size="mini" class="item" v-model="params.group_code" filterable placeholder="请选择">
             <el-option v-for="item in clientGroupList" :key="item.group_code" :label="item.group_name" :value="item.group_code"></el-option>
           </el-select>
         </el-col>
 
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">运单号</div>
           <el-input @keyup.enter.native="search" class="item" size="mini" v-model="params.way_bill_number" clearable placeholder="请输入运单号"></el-input>
         </el-col>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">客户单号</div>
           <el-input @keyup.enter.native="search" class="item" size="mini" v-model="params.customer_number" clearable placeholder="请输入客户单号"></el-input>
         </el-col>
       </el-row>
       <el-row style="margin-top:15px;">
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">运单类型</div>
           <el-select @keyup.enter.native="search" size="mini" class="item" v-model="params.way_bill_type" filterable placeholder="全部">
             <el-option v-for="item in waybillType" :key="item.type_index" :label="item.type_name" :value="item.type_index"></el-option>
           </el-select>
         </el-col>
 
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">客户编码</div>
           <el-input @keyup.enter.native="search" size="mini" class="item" v-model="params.company_code" clearable placeholder="请输入客户编码"></el-input>
         </el-col>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">运单状态</div>
           <el-select @keyup.enter.native="search" size="mini" class="item" v-model="params.way_bill_status" filterable placeholder="全部">
             <el-option v-for="item in statusList" :key="item.status_index" :label="item.status_name" :value="item.status_index"></el-option>
@@ -138,6 +138,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

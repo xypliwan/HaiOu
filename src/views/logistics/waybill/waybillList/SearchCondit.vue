@@ -3,37 +3,37 @@
   <div>
     <div class="search-box">
       <el-row>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">客户分组</div>
           <el-select @keyup.enter.native="search" size="mini" class="item" v-model="params.group_code" filterable placeholder="请选择">
             <el-option v-for="item in clientGroupList" :key="item.group_code" :label="item.group_name" :value="item.group_code"></el-option>
           </el-select>
         </el-col>
 
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">运单号</div>
           <el-input class="item" @keyup.enter.native="search" size="mini" v-model="params.way_bill_number" clearable placeholder="请输入运单号"></el-input>
         </el-col>
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">客户单号</div>
           <el-input class="item" @keyup.enter.native="search" size="mini" v-model="params.customer_number" clearable placeholder="请输入客户单号"></el-input>
         </el-col>
-
-        
       </el-row>
       <el-row style="margin-top:15px;">
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">运单类型</div>
           <el-select size="mini" @keyup.enter.native="search" class="item" v-model="params.way_bill_type" filterable placeholder="请选择">
             <el-option v-for="item in waybillType" :key="item.type_index" :label="item.type_name" :value="item.type_index"></el-option>
           </el-select>
         </el-col>
 
-        <el-col :span="5" class="flxed">
+        <el-col :span="7" class="flxed">
           <div class="input-label">客户编码</div>
           <el-input size="mini" @keyup.enter.native="search" class="item" v-model="params.company_code" clearable placeholder="请输入客户编码"></el-input>
         </el-col>
+      </el-row>
 
+      <el-row style="margin-top:15px;">
         <el-col :span="10" class="flxed">
           <div class="input-label">发布时间</div>
           <el-date-picker
@@ -50,10 +50,7 @@
             value-format="yyyy-MM-dd HH:mm:ss"
           ></el-date-picker>
         </el-col>
-      </el-row>
-
-      <el-row style="margin-top:20px;">
-        <el-col style="width:225px;margin-left:71px;">
+        <el-col style="width:225px;margin-left:32px;">
           <el-button size="mini" type="primary" @click="search">查询</el-button>
           <el-button size="mini" @click="reset">重置</el-button>
         </el-col>
@@ -101,12 +98,11 @@ export default {
     // console.log(this.params.created_start)
     // console.log(this.params.created_end)
   },
-  mounted() {
-  },
+  mounted() {},
   watch: {
-      clientGroupList(newVal){
-          this.params.group_code = newVal[0].group_code
-      }
+    clientGroupList(newVal) {
+      this.params.group_code = newVal[0].group_code;
+    }
   },
   methods: {
     search() {
@@ -116,7 +112,7 @@ export default {
       for (let i in this.params) {
         this.params[i] = '';
       }
-      this.times = []
+      this.times = [];
       this.$emit('reset', this.params);
     },
     changeTime(e) {
@@ -134,6 +130,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-box {
+  width: 1000px;
   .input-label {
     color: #666;
     font-size: 13px;

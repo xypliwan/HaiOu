@@ -94,7 +94,7 @@
         </el-col>
 
         <el-col :span="11" :offset="1">
-          <el-form-item label="公司qq号码">
+          <el-form-item label="公司QQ号码">
             <div class="cont">{{detail.company_info.company_qq }}</div>
           </el-form-item>
         </el-col>
@@ -145,9 +145,10 @@ export default {
   },
   watch: {
     id(newVal) {
-      this.getCompanyDetail();
-    },
-    
+      if (newVal.length) {
+        this.getCompanyDetail();
+      }
+    }
   },
   methods: {
     async getCompanyDetail() {

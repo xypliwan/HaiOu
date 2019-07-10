@@ -5,9 +5,9 @@
         <el-form size="small" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" v-loading="formLoading">
           <el-row>
             <el-col :span="11">
-              <el-form-item label="渠道" prop="cc_id">
-                <el-select v-model="ruleForm.cc_id" placeholder="请选择渠道">
-                  <el-option :label="item.cc_name" :value="item.cc_id" v-for="(item,index) in channelList" :key="index"></el-option>
+              <el-form-item label="派送渠道" prop="cc_id">
+                <el-select v-model="ruleForm.cc_id" filterable clearable placeholder="请选择渠道">
+                  <el-option :label="`[ ${item.cc_code} ] ${item.cc_name}`" :value="item.cc_id" v-for="(item,index) in channelList" :key="index"></el-option>
                 </el-select>
               </el-form-item>
             </el-col>

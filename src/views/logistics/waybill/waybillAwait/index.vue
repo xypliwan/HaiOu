@@ -167,6 +167,12 @@ export default {
       }
     },
     async seaDetail(number, code) {
+      const loading = this.$loading({
+        lock: true,
+        text: '同步中...',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.3)'
+      });
       let params = {
         way_bill_number: number,
         company_code: code
@@ -179,6 +185,7 @@ export default {
       } catch (error) {
         this._message(error);
       }
+      loading.close();
     },
     async getWaybillList() {
       this.tableLoading = true;

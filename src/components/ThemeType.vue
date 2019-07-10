@@ -3,9 +3,9 @@
     <div class="item-wrapper" @click="selectTheme(index)" v-for="(item, index) in themeStyles" :key="index">
       <div class="theme-title">{{ $t(item.title) }}</div>
       <div class="item" :class="{'active-theme':currentIndex == index}">
-        <div class="item-left" :style="item.style.left"></div>
+        <div class="right-top" :style="item.style.top"></div>
         <div class="item-right">
-          <div class="right-top" :style="item.style.top"></div>
+          <div class="item-left" :style="item.style.left"></div>
           <div class="right-bottom"></div>
         </div>
       </div>
@@ -60,22 +60,23 @@ export default {
       padding: 10px 10px;
       border: 1px solid #f1f1f1;
       border-radius: 3px;
-      display: flex;
       background: #f1f1f1;
       &.active-theme {
         border: 2px solid #409eff;
       }
-      .item-left {
-        width: 40px;
-        height: 100%;
-        margin-right: 10px;
+      .right-top {
+        height: 30px;
       }
       .item-right {
-        flex: 1;
-        .right-top {
-          height: 30px;
+        display: flex;
+        .item-left {
+          width: 40px;
+          margin-right: 10px;
+          float: left;
+          margin-top: 10px;
         }
         .right-bottom {
+          flex: 1;
           height: 56px;
           margin-top: 10px;
           background: #fff;

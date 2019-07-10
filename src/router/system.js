@@ -104,7 +104,7 @@ export default [
                     title: "route.labelList",
                     name: "label-list",
                     authentication: true,
-                    keepAlive: false
+                    keepAlive: true
                 }
             },
             {
@@ -115,7 +115,7 @@ export default [
                     title: "route.print",
                     name: "print",
                     authentication: true,
-                    keepAlive: false
+                    keepAlive: true
                 }
             },
         ]
