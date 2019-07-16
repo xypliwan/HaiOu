@@ -110,6 +110,7 @@ import ReviewDialog from './ReviewDialog';
 import { getTypes, getStatus, getDict } from '@/api/common';
 import { contractTemplateList, contractReportTemplate } from '@/api/system';
 export default {
+  name:'contractTemplate',
   data() {
     return {
       contractVisible: false,

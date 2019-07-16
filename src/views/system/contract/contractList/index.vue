@@ -111,6 +111,7 @@ import ReviewContract from './ReviewContract';
 import { searchTemplateList, getContractList, reportContract, signContract } from '@/api/system';
 import { getTypes, getStatus } from '@/api/common';
 export default {
+  name:'contractList',
   data() {
     return {
       pageSizeArr: [10, 20, 30, 40],

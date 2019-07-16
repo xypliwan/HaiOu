@@ -66,6 +66,7 @@ import SearchCondit from './SearchCondit';
 import CustomizePage from '_c/CustomizePage';
 import { getWeightType, getWeightTemplateListData } from '@/api/logistics';
 export default {
+  name:'weightTemplate',
   data() {
     return {
       templateVisible: false,

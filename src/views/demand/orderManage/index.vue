@@ -131,6 +131,7 @@ import { userSearch } from '@/api/user';
 import { getStatus, getChannelList, getCounrty, getTypes, getDict } from '@/api/common';
 
 export default {
+  name:'orderManage',
   data() {
     return {
       statusList: [], //状态统计

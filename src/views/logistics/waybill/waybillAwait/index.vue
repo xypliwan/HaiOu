@@ -113,6 +113,7 @@ import SerachCondit from './SearchCondit';
 import OperatType from '_c/common/OperatType';
 import CustomizePage from '_c/CustomizePage';
 export default {
+  name:'waybillAwait',
   data() {
     return {
       clientGroupList: [], //客户分组

@@ -8,11 +8,11 @@ export default [
         children: [
             {
                 path: "customer/list",        //客户列表
-                name: "company-manage",
+                name: "companyManage",
                 component: () => import("@/views/client/companyManage/index.vue"),
                 meta: {
                     title: "route.customerList",
-                    name: "company-manage",
+                    name: "companyManage",
                     authentication: true,
                     keepAlive: true
                 }

@@ -2,6 +2,12 @@
   <div class="search-box">
     <el-row>
       <el-col :span="7" class="flxed">
+        <div class="input-label">客户分组</div>
+        <el-select @keyup.enter.native="search" filterable clearable class="item" size="mini" v-model="params.group_code" filterable clearable placeholder="全部">
+          <el-option v-for="item in clentGroup" :key="item.group_code" :label="item.group_name" :value="item.group_code"></el-option>
+        </el-select>
+      </el-col>
+      <el-col :span="7" class="flxed">
         <div class="input-label">公司名称</div>
         <el-input clearable size="mini" class="item" placeholder="模糊搜索" v-model="params.company_name" @keyup.enter.native="search"></el-input>
       </el-col>
@@ -38,6 +44,9 @@
 
 <script>
 export default {
+  props:{
+    clentGroup:[Array]
+  },
   data() {
     return {
       times: [],
@@ -45,7 +54,9 @@ export default {
         company_name: '', //名称
         company_code: '', //公司代码
         created_start: '',
-        created_end: ''
+        created_end: '',
+        group_code:'',    //客户分组
+
       }
     };
   },

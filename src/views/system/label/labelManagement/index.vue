@@ -62,6 +62,7 @@ import CustomizePage from '_c/CustomizePage';
 import { getTypes } from '@/api/common';
 import { getTemplateList } from '@/api/develop';
 export default {
+  name:'labelList',
   data() {
     return {
       labelVisible: false,

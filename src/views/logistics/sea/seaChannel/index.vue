@@ -61,6 +61,7 @@ import CustomizePage from '_c/CustomizePage';
 import { getStatus, getDict } from '@/api/common';
 import { getContainerChannelList } from '@/api/logistics';
 export default {
+  name:'seaChannel',
   data() {
     return {
       channelVisible: false,

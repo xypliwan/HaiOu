@@ -89,6 +89,7 @@ import { getAccountExtends, saveAccountEdit } from '@/api/system';
 import Upload from '_c/upload/upload';
 import ConfigTable from './ConfigTable';
 export default {
+  name:'chargeSet',
   data() {
     return {
       fromLoading: false,

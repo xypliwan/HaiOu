@@ -140,6 +140,7 @@ import DetailWaybill from './DetailWaybill';
 import CommonDialog from '_c/common/Dialog';
 import axios from '@/utils/downloadRequest';
 export default {
+  name:'waybillList',
   data() {
     return {
       clientGroupList: [], //客户分组

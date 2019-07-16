@@ -112,6 +112,7 @@ import {
 import { getDict, getStatus } from '@/api/common';
 
 export default {
+  name:'seaPrice',
   data() {
     return {
       pageSizeArr: [10, 20, 30, 40],

@@ -15,8 +15,6 @@ export function getToken() {
       router.push("/user/login");
     }, 1000);
   }
-
-
 }
 
 //enter事件
@@ -39,12 +37,3 @@ export function dealDisabledDate(time) {
   // return time.getTime() <= Date.now()
   return time.getTime() < Date.now() - 8.64e7
 }
-
-// export function _message(msg, type = 'error') {
-//   Message({
-//     type: type,
-//     dangerouslyUseHTMLString: true,
-//     showClose: true,
-//     message: msg
-//   });
-// }

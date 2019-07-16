@@ -102,3 +102,12 @@ export function openApp(data = {}) {
         data
     })
 };
+
+//审核客户
+export function verifyClient(data = {}) {
+    return axios({
+        url: `/v1/customer/verify`,
+        method: "post",
+        data
+    })
+};

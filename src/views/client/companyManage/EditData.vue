@@ -12,11 +12,11 @@
           <el-form-item label="公司主页" prop="company_web">
             <el-input v-model="ruleForm.company_web" clearable></el-input>
           </el-form-item>
-          <el-form-item label="状态" prop="name">
+          <!-- <el-form-item label="状态" prop="name">
             <el-radio-group v-model="ruleForm.company_status" size="mini">
               <el-radio :label="item.status_index" border v-for="(item,index) in statusList" v-if="index !== 0" :key="index">{{item.status_name}}</el-radio>
             </el-radio-group>
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item label="客户标签">
             <el-select v-model="ruleForm.company_label" multiple placeholder="请选择(多选)">
               <el-option v-for="item in lableList" :key="item.company_label_id" :label="item.company_label_name" :value="item.company_label_id"></el-option>
@@ -74,7 +74,7 @@ export default {
         company_label: [],
         company_contacts: '',
         company_telephone: '',
-        company_status: ''
+        // company_status: ''
       },
       rules: {
         company_name: [{ required: true, message: '公司名称必填', trigger: 'blur' }],

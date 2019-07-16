@@ -78,6 +78,7 @@ import EditData from './EditData';
 import { getStatus } from '@/api/common';
 import { getStaffList } from '@/api/system';
 export default {
+  name:'userList',
   data() {
     return {
       statusList: [],

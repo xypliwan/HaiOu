@@ -39,4 +39,27 @@ export function arrDeWeight(arr, key) {
         }
     }
     return result
-}      
+}
+
+//两个数组对象，取出不相同的
+export function getDiffArr(arr1, arr2, name) {
+    var result = [];
+    for (var i = 0; i < arr2.length; i++) {
+        var obj = arr2[i];
+        var num = obj[name];
+        var isExist = false;
+        for (var j = 0; j < arr1.length; j++) {
+            var aj = arr1[j];
+            var n = aj[name];
+            if (n == num) {
+                isExist = true;
+                break;
+            }
+        }
+        if (!isExist) {
+            result.push(obj);
+        }
+    }
+    // console.log(result);
+    return result
+}

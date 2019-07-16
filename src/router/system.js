@@ -9,45 +9,44 @@ export default [
         children: [
             {
                 path: "user/list", //用户列表
-                name: "user-list",
+                name: "userList",
                 component: () => import("@/views/system/userManage/index.vue"),
                 meta: {
                     title: "route.userList",
-                    name: "user-list",
+                    name: "userList",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "user-center", //个人中心
-                name: "user-center",
+                name: "userCenter",
                 component: () => import("@/views/system/userCenter/index.vue"),
                 meta: {
                     title: "route.userCenter",
-                    name: "user-center",
+                    name: "userCenter",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "contract/contract-list", //合同列表
-                name: "contract-list",
+                name: "contractList",
                 component: () => import("@/views/system/contract/contractList/index.vue"),
                 meta: {
                     title: "route.contractList",
-                    // title: "发布需求",
-                    name: "contract-list",
+                    name: "contractList",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "contract/contract-template", //合同模板
-                name: "contract-template",
+                name: "contractTemplate",
                 component: () => import("@/views/system/contract/contractTemplate/index.vue"),
                 meta: {
                     title: "route.contractTemplate",
-                    name: "contract-template",
+                    name: "contractTemplate",
                     authentication: true,
                     keepAlive: true
                 }
@@ -68,7 +67,7 @@ export default [
                 name: "config",
                 component: () => import("@/views/system/systemManage/config/index.vue"),
                 meta: {
-                    title: "route.systemConfig",
+                    titles: "route.systemConfig",
                     name: "config",
                     authentication: true,
                     keepAlive: true
@@ -76,33 +75,33 @@ export default [
             },
             {
                 path: "system-manage/charge-set", //收费设置
-                name: "charge-set",
+                name: "chargeSet",
                 component: () => import("@/views/system/systemManage/chargeSet/index.vue"),
                 meta: {
                     title: "route.chargeSet",
-                    name: "charge-set",
+                    name: "chargeSet",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "label/label-management", //标签列表
-                name: "label-management",
+                name: "labelManagement",
                 component: () => import("@/views/system/label/labelManagement/index.vue"),
                 meta: {
                     title: "route.labelManagement",
-                    name: "label-management",
+                    name: "labelManagement",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "label/label-list", //标签管理
-                name: "label-list",
+                name: "labelList",
                 component: () => import("@/views/system/label/labelList/index.vue"),
                 meta: {
                     title: "route.labelList",
-                    name: "label-list",
+                    name: "labelList",
                     authentication: true,
                     keepAlive: true
                 }

@@ -24,11 +24,10 @@
           </div>
           <div class="page-wrapper">
             <transition name="oms" mode="out-in">
-              <keep-alive v-if="$route.meta.keepAlive">
+              <keep-alive :include="cachedViews">
                 <router-view></router-view>
               </keep-alive>
             </transition>
-            <router-view v-if="!$route.meta.keepAlive"></router-view>
           </div>
         </el-main>
       </el-container>
@@ -52,7 +51,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['themeType'])
+    ...mapGetters(['themeType', 'cachedViews'])
   },
   mounted() {
     let themeIndex = getLocalStorage('themeindex');

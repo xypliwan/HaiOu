@@ -8,11 +8,11 @@ export default [
         children: [
             {
                 path: "demand/list",        //需求管理
-                name: "order-manage",
+                name: "orderManage",
                 component: () => import("@/views/demand/orderManage/index.vue"),
                 meta: {
                     title: "route.demandList",
-                    name: "order-manage",
+                    name: "orderManage",
                     authentication: true,
                     keepAlive: true
                 }

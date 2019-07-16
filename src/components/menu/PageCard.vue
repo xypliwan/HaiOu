@@ -115,12 +115,6 @@ export default {
   /deep/ #tab-home .el-icon-close {
     display: none;
   }
-  /deep/ .el-tabs {
-    // flex: 1;
-  }
-  /deep/ .el-tabs--border-card {
-    // box-shadow: none;
-  }
   .close-label {
     float: right;
     padding: 0 20px;

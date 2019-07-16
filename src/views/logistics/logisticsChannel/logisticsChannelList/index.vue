@@ -158,6 +158,7 @@ import {
 import { getStatus, getDict } from '@/api/common';
 
 export default {
+  name:'logisticsChannelList',
   data() {
     return {
       pageSizeArr: [10, 20, 30, 40],

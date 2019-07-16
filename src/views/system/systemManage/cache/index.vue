@@ -76,6 +76,7 @@ import CustomizePage from '_c/CustomizePage';
 import { getTypes, getStatus } from '@/api/common';
 import { getCacheList, deteleCache } from '@/api/system';
 export default {
+  name:'cache',
   data() {
     return {
       flg: '', //1新增  2查看   3编辑

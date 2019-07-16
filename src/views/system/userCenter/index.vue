@@ -72,6 +72,7 @@ import Titles from '_c/common/Titles';
 import EditPassword from './editPassword';
 import { getUserInfo, editUser } from '@/api/user';
 export default {
+  name:'userCenter',
   data() {
     return {
       ruleForm: {

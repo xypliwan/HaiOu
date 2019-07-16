@@ -7,66 +7,66 @@ export default [
         children: [
             {
                 path: "waybill/waybill-list", //运单列表
-                name: "waybill-list",
+                name: "waybillList",
                 component: () => import("@/views/logistics/waybill/waybillList/index.vue"),
                 meta: {
                     title: "route.logisticsList",
-                    name: "waybill-list",
+                    name: "waybillList",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "waybill/waybill-await", //运单同步
-                name: "waybill-await",
+                name: "waybillAwait",
                 component: () => import("@/views/logistics/waybill/waybillAwait/index.vue"),
                 meta: {
                     title: "route.waybillAwait",
-                    name: "waybill-await",
+                    name: "waybillAwait",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "sea/sea-price", //海运价格
-                name: "sea-price",
+                name: "seaPrice",
                 component: () => import("@/views/logistics/sea/seaPrice/index.vue"),
                 meta: {
                     title: "route.channgeList",
-                    name: "sea-price",
+                    name: "seaPrice",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "sea/sea-channel", //海运渠道
-                name: "sea-channel",
+                name: "seaChannel",
                 component: () => import("@/views/logistics/sea/seaChannel/index.vue"),
                 meta: {
                     title: "route.seaChannel",
-                    name: "sea-channel",
+                    name: "seaChannel",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "logistics-channel/logistics-channel-list", //物流渠道列表
-                name: "logistics-channel-list",
+                name: "logisticsChannelList",
                 component: () => import("@/views/logistics/logisticsChannel/logisticsChannelList/index.vue"),
                 meta: {
                     title: "route.logisticsChannelList",
-                    name: "logistics-channel-list",
+                    name: "logisticsChannelList",
                     authentication: true,
                     keepAlive: true
                 }
             },
             {
                 path: "logistics-channel/weight-template", //重量段模板
-                name: "weight-template",
+                name: "weightTemplate",
                 component: () => import("@/views/logistics/logisticsChannel/weightTemplate/index.vue"),
                 meta: {
                     title: "route.weightTemplate",
-                    name: "weight-template",
+                    name: "weightTemplate",
                     authentication: true,
                     keepAlive: true
                 }

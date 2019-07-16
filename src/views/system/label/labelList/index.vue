@@ -11,6 +11,7 @@ import group from '@/utils/label/js/group/index.js';
 import { saveTemplate, getLableDetail } from '@/api/develop';
 
 export default {
+  name:'labelManagement',
   data() {
     return {
       customLabel: null,

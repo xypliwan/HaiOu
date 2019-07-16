@@ -35,6 +35,7 @@ export default {
   },
   created() {
     // this.initWebSocket();
+    // console.log(this)
   },
   destroyed: function() {
     //页面销毁时关闭长连接

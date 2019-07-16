@@ -1,8 +1,9 @@
 <template>
   <div>
-    <search-condit @search="search" @reset="reset"></search-condit>
+    <search-condit @search="search" @reset="reset" :clentGroup="clentGroup"></search-condit>
     <div class="operat-box">
       <el-button size="mini" plain :disabled="params.company_status !== '3'" @click="distributionCompany">分配客服</el-button>
+      <el-button size="mini" plain :disabled="params.company_status != '1'" @click="reviewClient">审核客户</el-button>
     </div>
     <operat-type :operatType="statusList" @getStatus="getOperatStatus"></operat-type>
 
@@ -16,7 +17,8 @@
         stripe
         @selection-change="selectChange"
       >
-        <el-table-column type="selection" width="55" v-if="params.company_status == '3'"></el-table-column>
+        <el-table-column v-if="params.company_status == '1' || params.company_status == '3'" type="selection" width="55"></el-table-column>
+        <!-- <el-table-column type="selection" width="55" v-if="params.company_status == '3'"></el-table-column> -->
         <el-table-column label="NO" width="55" fixed>
           <template slot-scope="scope">
             <div>{{(scope.$index + 1) + (params.page-1)*params.pageSize}}</div>
@@ -43,6 +45,11 @@
         <el-table-column label="认证状态" width="150">
           <template slot-scope="scope">
             <div>{{ getMappingVal(verifiedStatus,'status_index',scope.row.verified_status,'status_name')}}</div>
+          </template>
+        </el-table-column>
+        <el-table-column label="客户分组" width="150">
+          <template slot-scope="scope">
+            <div>{{ getMappingVal(clentGroup,'group_code',scope.row.db_code,'group_name')}}</div>
           </template>
         </el-table-column>
         <el-table-column label="客户标签" width="200">
@@ -93,6 +100,8 @@
     <common-dialog :show.sync="detailDialog" title="详情" width="1000px">
       <detail ref="detailRef" :id="companyDetailId" :statusList="statusList" :verifiedStatus="verifiedStatus" :settlementType="settlementType" :currencyList="currencyList"></detail>
     </common-dialog>
+
+    <verify-client :vierfyVisible.sync="vierfyVisible" :companyList="companyList" :clentGroup="clentGroup" :statusList="statusList" :nowStatus="params.company_status" @saveOk="getCustomerList"></verify-client>
   </div>
 </template>
 
@@ -108,13 +117,17 @@ import { userSearch } from '@/api/user';
 import SubAccount from './SubAccount';
 import CommonDialog from '_c/common/Dialog';
 import Detail from './Detail';
+import { getCustomerGroup } from '@/api/client';
+import VerifyClient from './VerifyClient';
 
 export default {
+  name: 'companyManage',
   data() {
     return {
       statusList: [],
       pageSizeArr: [10, 20, 30, 40],
       params: {
+        group_code: '',
         company_code: '',
         company_name: '',
         company_status: '',
@@ -138,7 +151,9 @@ export default {
       verifiedStatus: [], //认证状态
       detailDialog: false,
       settlementType: [], //结算模式
-      currencyList: [] //币种列表
+      currencyList: [], //币种列表
+      clentGroup: [], //客户分组
+      vierfyVisible: false
     };
   },
   created() {
@@ -150,16 +165,36 @@ export default {
     this.getTypes('company_type');
     this.getTypes('settlement_type_code');
     this.getDict('currency');
+    this.getCustomerGroup();
   },
   watch: {
     detailDialog(newVal) {
-      if(!newVal){
-        this.companyDetailId = ''
+      if (!newVal) {
+        this.companyDetailId = '';
       }
       this.$refs.detailRef.$refs.appRef.visibleApp = false;
     }
   },
+
   methods: {
+    reviewClient() {
+      if (!this.companyList.length) {
+        this.$message({
+          message: '请先勾选需要审核的客户！',
+          type: 'warning'
+        });
+        return;
+      }
+      this.vierfyVisible = true;
+    },
+    async getCustomerGroup() {
+      try {
+        let { data } = await getCustomerGroup();
+        this.clentGroup = data;
+      } catch (error) {
+        this._message(error);
+      }
+    },
     async getDict(dict) {
       try {
         let { data } = await getDict({ dict_code: dict });
@@ -224,6 +259,7 @@ export default {
       //勾选的选项发生变化时
       this.companyList = selection;
     },
+
     editData(id) {
       this.companyId = id;
       this.editDialog = true;
@@ -298,7 +334,8 @@ export default {
     DistributionCompany,
     SubAccount,
     CommonDialog,
-    Detail
+    Detail,
+    VerifyClient
   }
 };
 </script>

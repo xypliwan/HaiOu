@@ -88,6 +88,7 @@ import { getPrint } from '@/utils/print/doPrint';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 
 export default {
+  name:'print',
   components: {},
   data() {
     return {

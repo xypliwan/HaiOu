@@ -4,8 +4,6 @@ node_modules
 /test
 /intr
 
-# config files
-/src/config/*.js
 
 # local env files
 .env.local
