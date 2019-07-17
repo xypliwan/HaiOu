@@ -29,7 +29,6 @@ service.interceptors.request.use(config => {
 // 添加响应拦截器
 service.interceptors.response.use(
   response => {
-
     let res = response.data
     if (res.code == 200) {
       if (res.error == 1001) {

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import { getLocalStorage } from '_u/localStorage';
+import Layout from "@/views/layout/master";
 
 import common from './common'           //公共
 import tool from './tool'               //研发工具
@@ -26,13 +27,20 @@ const router = new Router({
         ...logistics,
         {
             path: "*",
-            name: "404",
-            component: () => import("@/views/404/index.vue"),
-            meta: {
-                authentication: true,
-                keepAlive: true
-            }
+            component: Layout,
+            children: [
+                {
+                    path: "*",
+                    name: "404",
+                    component: () => import("@/views/404/index.vue"),
+                    meta: {
+                        authentication: true,
+                        keepAlive: true
+                    }
+                }
+            ]
         }
+
     ]
 })
 
@@ -43,7 +51,7 @@ router.beforeEach((to, from, next) => {
         next()
     }
 
-    
+
 })
 
 export default router;

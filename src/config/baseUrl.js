@@ -6,10 +6,10 @@ let baseURL = '';
 if (process.env.NODE_ENV === 'production') {
     if (process.env.VUE_APP_FLAG === 'pro') {
         //production 生产环境
-        baseURL = 'xxxx';
+        baseURL = 'http://api-admin.haioupai.com/';
     } else if (process.env.VUE_APP_FLAG === 'test') {
         //test 测试环境
-        baseURL = 'yyyy';
+        baseURL = 'http://test-api-admin.haioupai.com/';
 
     } else if (process.env.VUE_APP_FLAG === 'intr') {
         //local 内网环境

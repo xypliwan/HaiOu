@@ -41,8 +41,6 @@ import PageCard from '_c/menu/PageCard';
 import TopBox from '_c/menu/TopBox';
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 import { setLocalStorage, getLocalStorage } from '_u/localStorage';
-import { setTimeout } from 'timers';
-import { constants } from 'crypto';
 
 export default {
   data() {
