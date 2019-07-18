@@ -3,7 +3,7 @@ import axios from '@/utils/axios'
 
 
 
-//获取客户列表（公司列表）
+//获取客户列表（公司列表）渣渣
 export function getCustomerList(data = {}) {
     return axios({
         url: `/v1/customer/list`,
